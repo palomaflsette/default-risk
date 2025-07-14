@@ -85,12 +85,12 @@ Quando usar:
 
 #### 4. Verificação de Qualidade da Submissão (Recomendado)
 
-**Arquivo: `verificar_submissao.py`**
+**Arquivo: `check_submission.py`**
 
 Este script utilitário oferece uma análise detalhada da qualidade e consistência do arquivo de submissão gerado:
 
 ```bash
-python verificar_submissao.py
+python.exe -u check_submission.py
 ```
 
 **Exemplo de saída:**
