@@ -155,10 +155,21 @@ def main():
 
         final_probabilities = final_model.predict_proba(X_teste)[:, 1]
 
-        submission_df = submission_ids.copy()
-        submission_df['PROBABILIDADE_INADIMPLENCIA'] = final_probabilities
-        submission_df.to_csv(f'{path_processed}/submissao_case.csv', index=False, decimal=',')
-
+        # submission_df = submission_ids.copy()
+        # submission_df['PROBABILIDADE_INADIMPLENCIA'] = final_probabilities
+        submission_df = pd.DataFrame({
+            'ID_CLIENTE': df_teste_with_features['ID_CLIENTE'],
+            'SAFRA_REF': df_teste_with_features['SAFRA_REF'],
+            'PROBABILIDADE_INADIMPLENCIA': final_probabilities
+        })
+        colunas_finais = ['ID_CLIENTE', 'SAFRA_REF',
+                          'PROBABILIDADE_INADIMPLENCIA']
+        submission_df[colunas_finais].to_csv(
+            f'{path_processed}/submissao_case.csv',
+            index=False,
+            decimal=','
+        )
+        
         print(f"\n\o/ PIPELINE CONCLUÍDO COM SUCESSO!")
         print(
             f"Arquivo 'submissao_case.csv' gerado com {len(submission_df)} predições")

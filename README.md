@@ -31,7 +31,7 @@ openpyxl>=3.0.0        # Manipulação de arquivos Excel
 
 **Arquivo: `notebooks/1.0-EDA_e_Feature_Engineering.ipynb`**
 
-Este notebook representa o **núcleo conceitual** do projeto e deve ser executado **obrigatoriamente em primeiro lugar**. Ele contém:
+Este notebook representa o **núcleo conceitual** do projeto e deve ser executado **PREFERENCIALMENTE em primeiro lugar**. Ele contém:
 
 - **Formulação de Hipóteses de Negócio**: Desenvolvimento de hipóteses fundamentadas sobre fatores de risco
 - **Análise Exploratória Sistemática**: Investigação estruturada em camadas (perfil estático, comportamento temporal, contexto financeiro)
@@ -62,7 +62,7 @@ Este notebook implementa a solução preditiva baseada nos _insights_ do noteboo
 **Características técnicas importantes:**
 
 - Tratamento adequado do desbalanceamento de classes
-- Foco em métricas de negócio relevantes (priorização do _Recall_)
+- Foco em métricas de negócio relevantes (priorização do _Recall_ equilibrado com _Precision_)
 - Validação cruzada que respeita a estrutura temporal dos dados
 
 #### 3. Pipeline Automatizado (Opcional)
@@ -81,7 +81,76 @@ Quando usar:
 - Para simulação de um ambiente de produção
 - Para reprodução rápida dos resultados finais
 
-> Importante: O pipeline automatizado foi projetado como uma demonstração de arquitetura MLOps. Ele executa os mesmos processos dos notebooks, mas de forma condensada e sem as explicações detalhadas que tornam o projeto educativo.
+> **Importante:** O pipeline automatizado representa uma **ponte conceitual entre desenvolvimento e produção**, introduzindo os fundamentos de MLOps de forma didática. Enquanto os notebooks privilegiam a exploração e compreensão, este script demonstra como o conhecimento adquirido seria estruturado em um **sistema automatizado e versionado**. É o primeiro degrau na escada evolutiva que leva a arquiteturas mais robustas: orquestração com Apache Airflow, containerização com Docker, monitoramento contínuo e deploy automatizado. Pense nele como um "proof-of-concept" que prepara o terreno para implementações _enterprise_ de MLOps.
+
+#### 4. Verificação de Qualidade da Submissão (Recomendado)
+
+**Arquivo: `verificar_submissao.py`**
+
+Este script utilitário oferece uma análise detalhada da qualidade e consistência do arquivo de submissão gerado:
+
+```bash
+python verificar_submissao.py
+```
+
+**Exemplo de saída:**
+
+```bash
+COBERTURA DE REGISTROS:
+   Base teste original: 12,275
+   Submissão gerada:    12,237
+   Diferença:           38 (+0.3%)
+
+CLIENTES ÚNICOS:
+   Base teste:   976 clientes
+   Submissão:    955 clientes
+
+SAFRAS ÚNICAS:
+   Base teste:   5
+   Submissão:    5
+
+ANÁLISE DAS PROBABILIDADES:
+   Mínima:     0.2041
+   Máxima:     0.8948
+   Média:      0.3761
+   Mediana:    0.3388
+   Desvio:     0.1272
+
+VERIFICAÇÕES DE QUALIDADE:
+   Valores nulos:           0
+   Probabilidades inválidas: 0
+   Transações por chave:     3,410 chaves únicas
+   Múltiplas transações:     8,827 casos
+
+ESTRUTURA DO ARQUIVO:
+   Colunas esperadas: ID_CLIENTE, SAFRA_REF, PROBABILIDADE_INADIMPLENCIA
+   Colunas presentes: ID_CLIENTE, SAFRA_REF, PROBABILIDADE_INADIMPLENCIA
+   Estrutura correta: SIM
+
+DISTRIBUIÇÃO DE RISCO:
+   Baixo risco (≤0.3):  3,171 (25.9%)
+   Médio risco (0.3-0.7): 8,419 (68.8%)
+   Alto risco (>0.7):    647 (5.3%)
+
+AMOSTRA DA SUBMISSÃO:
+      ID_CLIENTE  SAFRA_REF  PROBABILIDADE_INADIMPLENCIA
+8784237149961904 2021-07-01                     0.283395
+8784237149961904 2021-07-01                     0.301155
+8784237149961904 2021-07-01                     0.287099
+8784237149961904 2021-08-01                     0.266573
+8784237149961904 2021-08-01                     0.294347
+8784237149961904 2021-08-01                     0.356639
+8784237149961904 2021-08-01                     0.358506
+8784237149961904 2021-08-01                     0.344710
+8784237149961904 2021-08-01                     0.358537
+8784237149961904 2021-08-01                     0.359535
+
+============================================================
+Todos os critérios de qualidade foram atendidos.
+Arquivo pronto para submissão!
+============================================================
+```
+
 
 ### Principais Descobertas e Contribuições
 
