@@ -2,5 +2,6 @@ BASE_PAGAMENTOS_DESENVOLVIMENTO  = "data/raw/base_pagamentos_desenvolvimento.csv
 BASE_PAGAMENTOS_TESTE = "data/raw/base_pagamentos_teste.csv"
 BASE_INFO = "data/raw/base_info.csv"
 PATH_PROCESSED = "data/processed/"
+PATH_RAW = "data/raw"
 BASE_CADASTRAL = "data/raw/base_cadastral.csv"
 ASSETS = "assets"
