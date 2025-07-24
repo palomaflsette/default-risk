@@ -2,7 +2,7 @@
 
 ### Pré-requisitos e Configuração do Ambiente
 
-Antes de executar qualquer código, é **essencial** configurar adequadamente o ambiente virtual. O projeto foi desenvolvido em **Python 3.10** e possui dependências específicas que devem ser instaladas em um ambiente isolado.
+Antes de executar qualquer código, é **essencial** configurar adequadamente o ambiente virtual. O projeto foi desenvolvido em **Python 3.10** e há dependências específicas que devem ser instaladas em um ambiente isolado.
 
 **Consulte o arquivo `docs/managing_environments.md` para instruções detalhadas sobre:**
 
